@@ -12,12 +12,22 @@
              templateUrl: 'templates/list-contacts-view.html',
              controller: 'ContactController'
          })
-         . when('/create',
+         . when('/newContact',
          {
-             templateUrl: 'templates/edit-view.html',
+             templateUrl: 'templates/new-contact-view.html',
              controller: 'ContactController'
          })
+         . when('/editContact/:id',
+         {
+             templateUrl: 'templates/edit-contact-view.html',
+             controller: 'ContactController'
+         })
+         . when('/detailContact/:id',
+         {
+             templateUrl: 'templates/detail-contact-view.html',
+             controller: 'DetailViewController'
+         });
 
  });
 
- app.constant("baseUrl", "http://localhost:8015//Contact/");
+ app.constant("baseUrl", "http://localhost:8015/Contact/");

@@ -1,6 +1,6 @@
 <div class="panel-body">
     <div style="float: right">
-        <button class="btn btn-primary" ng-click="editOrCreateContact()">New</button>
+        <a href="#/newContact/" class="btn btn-xs btn-primary">Add</a>
     </div>
     <table class="table table-striped table-bordered">
         <thead>
@@ -13,19 +13,16 @@
         </thead>
         <tbody>
         <tr ng-repeat="contact in contacts">
-            <td>{{contact.FirstName}}</td>
+             <td>{{contact.FirstName}}
             <td>{{contact.LastName}}</td>
             <td>{{contact.Email}}</td>
             <td>{{contact.PhoneNumber}}</td>
             <td class="text-center">
+                <a href="#/detailContact/{{contact.Id}}" class="btn btn-xs btn-primary">Detail</a>
+                <a href="#/editContact/{{contact.Id}}" class="btn btn-xs btn-primary">Edit</a>
                 <button class="btn btn-xs btn-primary"
                         ng-click="deleteContact(contact)">
                     Delete
-                </button>
-                <button class="btn btn-xs btn-primary"
-                        ng-click="editOrCreateContact(contact)"
-                        >
-                    Edit
                 </button>
             </td>
         </tr>
