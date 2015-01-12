@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Address Book</title>
+    <link href="libs/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body style="padding: 40px">
+
+<div class="panel panel-primary">
+    <h3 class="panel-heading">Contacts</h3>
+    <div ng-view></div>
+</div>
+
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular/angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers/ContactController.js"></script>
+<script src="services/ContactService.js"></script>
+</body>
+</html>
