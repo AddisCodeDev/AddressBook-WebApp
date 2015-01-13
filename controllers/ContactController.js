@@ -4,15 +4,15 @@
 
 app.controller('ContactController',function($scope,$location,ContactService,$routeParams){
 
-    ContactService.listContact(function(contacts){
+    ContactService.getContacts(function(contacts){
         $scope.contacts = contacts.Contacts;
 
     });
 
     $scope.$on("$routeChangeSuccess", function () {
-        if ($location.path().indexOf("/editContact/") == 0) {
+        if ($location.path().indexOf("/contacts/edit/") == 0) {
             var id = $routeParams["id"];
-            ContactService.detailContact($routeParams.id, function (contact) {
+            ContactService.getContact($routeParams.id, function (contact) {
                 $scope.currentContact = contact.Contact;
             });
         }
@@ -31,7 +31,7 @@ app.controller('ContactController',function($scope,$location,ContactService,$rou
     }
 
     $scope.cancel = function () {
-        $location.path('/');
+        $location.path('/contacts');
     }
 
 });

@@ -7,7 +7,7 @@
  app.config(function($routeProvider){
 
      $routeProvider.
-         when('/',
+         when('/contacts',
          {
              templateUrl: 'templates/list-contacts-view.html',
              controller: 'ContactController'
@@ -17,15 +17,19 @@
              templateUrl: 'templates/new-contact-view.html',
              controller: 'ContactController'
          })
-         . when('/editContact/:id',
+         . when('/contacts/edit/:id',
          {
              templateUrl: 'templates/edit-contact-view.html',
              controller: 'ContactController'
          })
-         . when('/detailContact/:id',
+         . when('/contacts/:id',
          {
              templateUrl: 'templates/detail-contact-view.html',
              controller: 'DetailViewController'
+         })
+         .otherwise({
+             templateUrl: "templates/list-contacts-view.html",
+             controller: 'ContactController'
          });
 
  });

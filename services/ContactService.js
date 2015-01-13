@@ -4,14 +4,14 @@
 app.factory('ContactService',function($http,baseUrl,$location,$route){
     return{
 
-        listContact: function(callback){
+        getContacts: function(callback){
            $http.get(baseUrl).success(callback)
                .error(function(){
                //DO Something
            });
         },
 
-        detailContact: function(id, callback){
+        getContact: function(id, callback){
             $http.get(baseUrl+id).success(callback)
                 .error(function(){
                 //DO Something
@@ -20,7 +20,7 @@ app.factory('ContactService',function($http,baseUrl,$location,$route){
 
         saveContact:  function(contact){
             $http.post(baseUrl, contact).success(function(){
-                $location.path('/');
+                $location.path('/contacts');
             }).error(function(){
                 //DO Something
             });
@@ -37,7 +37,7 @@ app.factory('ContactService',function($http,baseUrl,$location,$route){
 
         updateContact: function(contact){
             $http.put(baseUrl,contact).success(function(){
-                $location.path('/');
+                $location.path('/contacts');
             }).error(function(){
                //DO Something
             });

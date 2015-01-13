@@ -1,7 +1,7 @@
 <div class="panel-body">
     <div class="form-group">
         <label>First Name:</label>
-        <input class="form-control" ng-model="contact.FirstName" />
+        <input class="form-control" type="text" required ng-model="contact.FirstName" />
     </div>
     <div class="form-group">
         <label>Last Name:</label>
@@ -12,8 +12,12 @@
         <input class="form-control" ng-model="contact.Email" />
     </div>
     <div class="form-group">
-        <label>Phone Number:</label>
-        <input class="form-control" ng-model="contact.PhoneNumber" />
+        <label>Department:</label>
+        <input class="form-control" ng-model="contact.Department" />
+    </div>
+    <div class="form-group">
+        <label>Year:</label>
+        <input class="form-control" ng-model="contact.Year" />
     </div>
     <button class="btn btn-primary" ng-click="createContact(contact)">Save</button>
     <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
