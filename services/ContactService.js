@@ -5,21 +5,21 @@ app.factory('ContactService',function($http,baseUrl,$location,$route){
     return{
 
         getContacts: function(callback){
-           $http.get(baseUrl).success(callback)
+           $http.get(baseUrl+'/Contact/').success(callback)
                .error(function(){
                //DO Something
            });
         },
 
         getContact: function(id, callback){
-            $http.get(baseUrl+id).success(callback)
+            $http.get(baseUrl+'/Contact/'+id).success(callback)
                 .error(function(){
                 //DO Something
             });
         },
 
         saveContact:  function(contact){
-            $http.post(baseUrl, contact).success(function(){
+            $http.post(baseUrl+'/Contact/', contact).success(function(){
                 $location.path('/contacts');
             }).error(function(){
                 //DO Something
@@ -28,15 +28,18 @@ app.factory('ContactService',function($http,baseUrl,$location,$route){
         },
 
         deleteContact: function(contact){
-            $http.delete(baseUrl+contact.Id).success(function(){
+            console.log(contact.Id);
+            $http.delete(baseUrl+'/Contact/'+contact.Id).success(function(){
+
                 $route.reload();
             }).error(function(){
                 //DO Something
             });
+            console.log(baseUrl+'/Contact/'+contact.Id);
         },
 
         updateContact: function(contact){
-            $http.put(baseUrl,contact).success(function(){
+            $http.put(baseUrl+'/Contact/',contact).success(function(){
                 $location.path('/contacts');
             }).error(function(){
                //DO Something

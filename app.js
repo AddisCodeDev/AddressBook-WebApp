@@ -34,4 +34,4 @@
 
  });
 
- app.constant("baseUrl", "http://localhost:8017/api/Contact/");
+ app.constant("baseUrl", "http://localhost:8017/api");
