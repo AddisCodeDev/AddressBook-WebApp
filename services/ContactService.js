@@ -27,15 +27,12 @@ app.factory('ContactService',function($http,baseUrl,$location,$route){
 
         },
 
-        deleteContact: function(contact){
-            console.log(contact.Id);
-            $http.delete(baseUrl+'/Contact/'+contact.Id).success(function(){
-
+        deleteContact: function(id){
+            $http.delete(baseUrl+'/Contact/'+id).success(function(){
                 $route.reload();
             }).error(function(){
                 //DO Something
             });
-            console.log(baseUrl+'/Contact/'+contact.Id);
         },
 
         updateContact: function(contact){

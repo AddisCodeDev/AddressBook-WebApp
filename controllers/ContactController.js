@@ -2,20 +2,11 @@
  * Created by Mohammed on 1/10/2015.
  */
 
-app.controller('ContactController',function($scope,$location,ContactService,$routeParams){
+app.controller('ContactController',function($scope,ContactService,$location,$routeParams){
 
     ContactService.getContacts(function(contacts){
         $scope.contacts = contacts.Contacts;
 
-    });
-
-    $scope.$on("$routeChangeSuccess", function () {
-        if ($location.path().indexOf("/contacts/edit/") == 0) {
-            var id = $routeParams["id"];
-            ContactService.getContact($routeParams.id, function (contact) {
-                $scope.currentContact = contact.Contact;
-            });
-        }
     });
 
     $scope.createContact = function (contact) {
@@ -27,11 +18,20 @@ app.controller('ContactController',function($scope,$location,ContactService,$rou
     }
 
     $scope.deleteContact = function (contact) {
-        ContactService.deleteContact(contact);
+        ContactService.deleteContact(contact.Id);
     }
 
     $scope.cancel = function () {
         $location.path('/contacts');
     }
+
+    $scope.$on("$routeChangeSuccess", function () {
+        if ($location.path().indexOf("/contacts/edit/") == 0) {
+            var id = $routeParams["id"];
+            ContactService.getContact($routeParams.id, function (contact) {
+                $scope.currentContact = contact.Contact;
+            });
+        }
+    });
 
 });
